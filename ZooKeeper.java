@@ -25,7 +25,11 @@ public class ZooKeeper {
     return salary;
   }
 
-  public void feedAnimals(List<Animal> animals) {
+  public void feedAnimals(List<Animal> animals) throws ZooKeeperException {
+    if (animals == null || animals.isEmpty()) {
+      throw new ZooKeeperException("Animals list cannot be null");
+    }
+
     for (Animal animal : animals) {
       animal.eat();
     }

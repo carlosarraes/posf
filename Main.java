@@ -28,24 +28,17 @@ public class Main {
       System.out.println("Arquivo não encontrado");
     }
 
-    Bird bird = new Bird("Pardal", 1, false);
-    Cat cat = new Cat("Gato", 2, true);
-    Dog dog = new Dog("Cachorro", 3, true);
     try {
+      Bird bird = new Bird("Pardal", 1, false);
+      Cat cat = new Cat("Gato", 2, true);
+      Dog dog = new Dog("Cachorro", 3, true);
       main.animalService.addAnimal(bird);
       main.animalService.addAnimal(cat);
       main.animalService.addAnimal(dog);
-    } catch (DuplicateAnimalException e) {
-      System.out.println("Animal já existe");
-    }
 
-    System.out.println(zooKeeper);
-
-    zooKeeper.feedAnimals(main.animalService.listAnimals());
-
-    try {
+      zooKeeper.feedAnimals(main.animalService.listAnimals());
       main.animalService.saveAnimalsToFile("animais.txt");
-    } catch (IOException e) {
+    } catch (IOException | ZooKeeperException e) {
       System.out.println("Erro ao salvar animais");
     }
   }
