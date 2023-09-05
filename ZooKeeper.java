@@ -1,11 +1,11 @@
 import java.util.List;
-import java.util.Set;
+import java.util.Vector;
 
 public class ZooKeeper {
   private String name;
   private int yearsOfExperience;
   private double salary;
-  private Set<String> tools;
+  private Vector<String> tools;
 
   public ZooKeeper(String name, int yearsOfExperience, double salary) {
     this.name = name;
@@ -31,11 +31,11 @@ public class ZooKeeper {
     }
   }
 
-  public void setTools(Set<String> tools) {
+  public void setTools(Vector<String> tools) {
     this.tools = tools;
   }
 
-  public Set<String> getTools() {
+  public Vector<String> getTools() {
     return tools;
   }
 

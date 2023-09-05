@@ -9,33 +9,28 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AnimalService implements IAnimal {
-  private List<Animal> animais = new ArrayList<Animal>();
   private Map<String, Animal> animalDB = new HashMap<>();
 
   @Override
-  public void addAnimal(Animal animal) {
+  public void addAnimal(Animal animal) throws DuplicateAnimalException {
     if (animalDB.containsKey(animal.getName()))
       throw new DuplicateAnimalException("Animal já existe");
 
-    animais.add(animal);
     animalDB.put(animal.getName(), animal);
   }
 
   @Override
   public void removeAnimal(Animal animal) {
-    animais.remove(animal);
     animalDB.remove(animal.getName());
   }
 
   @Override
   public List<Animal> listAnimals() {
-    return animais;
+    return new ArrayList<>(animalDB.values());
   }
 
   @Override
   public void updateAnimal(Animal animal) {
-    int index = animais.indexOf(animal);
-    animais.set(index, animal);
     animalDB.put(animal.getName(), animal);
   }
 

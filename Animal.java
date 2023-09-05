@@ -30,6 +30,10 @@ public abstract class Animal {
     this.foodItems = foodItems;
   }
 
+  public String[] getFoodItems() {
+    return foodItems;
+  }
+
   @Override
   public String toString() {
     return "Animal [name=" + name + ", age=" + age + ", isDomesticated=" + isDomesticated + "]";
